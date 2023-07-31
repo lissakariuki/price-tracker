@@ -1,0 +1,47 @@
+body {
+    background-image: url() ;
+}
+h1 {
+    text-align: center;
+}
+form {
+    background-color: rgb(245, 224, 220);
+    padding: 2em;
+    height: 5.5em;  
+    margin: auto;
+}
+form label {
+    display: block;
+    margin: 0px 0px 15px 0px;
+}
+form label > span {
+    width: 25%;
+    float: left;
+    padding-left: 5%;
+}
+form input[type=text] {
+    width: 60%;
+}
+form button {
+    float: right;
+    margin-right: 9%;
+    height: 2.2em;
+}
+table {
+    margin: auto;
+    width: 100%;
+    border-top: 1px black solid;
+}
+div {
+    border: 1px black solid;
+    width: 31em;
+    margin: auto;
+}
+th {
+    padding-top: 0.8em;
+    padding-bottom: 0.6em;
+    text-align: left;
+}
+td {
+    padding-bottom: 0.4em;
+}

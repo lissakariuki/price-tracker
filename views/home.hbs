@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Statistics of goods and commodities</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="public\css\style.css" />
+    <!--chart.js-->
+    <script
+src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+</script>
+</head>
+<body onload="fetchCommodities()">
+    <h1>Commodity Register</h1>
+    <div>
+        <form>
+            <label for="commodityId">
+                <span>Commodity id:</span>
+                <input id="commodityId" type="text" />
+            </label>
+            <label for="commodityName">
+                <span>Commodity name:</span>
+                <input id="commodityName" type="text" />
+            </label>
+            <label for="commodityPrice">
+                <span>Commodity price:</span>
+                <input id="commodityPrice" type="text" />
+            </label>
+            <label>
+                <span> </span>
+                <button type="button">View</button>
+            </label>
+            <label>
+                <span> </span>
+                <button type="button">Add</button>
+            </label>
+            <label>
+                <span> </span>
+                <button type="button">Edit</button>
+            </label>
+            <label>
+                <span> </span>
+                <button type="button">Delete</button>
+            </label>
+        </form>
+
+        <table id="content">
+        </table>
+    </div>
+    <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
+    <script src="public\js\main.js"></script>
+</body>
+</html>
