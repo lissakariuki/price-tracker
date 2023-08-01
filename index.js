@@ -1,14 +1,24 @@
 // index.js
 const express = require('express');
 const bodyParser = require('body-parser');
-
+const jsonParser = bodyParser.json();
+const fileName = 'commodities.json';
+const fs = require('fs');
 const app = express();
 const port = 3000;
 
 app.use(bodyParser.json());
 
 let commodities = [];
+// Set up the view engine to use Handlebars
+app.set('view engine', 'hbs');
+// Set the folder where your views (HBS files) are located
+//app.set('views', __dirname + '/views');
 
+// Set the folder where your static files (CSS and JS) are located
+app.use(express.static(__dirname + '/public'));
+//app.use(express.static('public'));
+//app.use(express.static('public'));
 // Endpoint for fetching all commodities
 app.get('/commodities', (req, res) => {
   res.json(commodities);
@@ -45,46 +55,28 @@ app.delete('/commodities/:id', (req, res) => {
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
 });
-/*
-const express = require('express');
-const bodyParser = require('body-parser');
-const fs = require('fs');
-const app = express();
-const port = 3000;
-const jsonParser = bodyParser.json();
-const fileName = 'commodities.json';
-//const hbs = require('hbs');
 
-// Set up the view engine to use Handlebars
-app.set('view engine', 'hbs');
-
-// Set the folder where your views (HBS files) are located
-app.set('views', __dirname + '/views');
-
-// Set the folder where your static files (CSS and JS) are located
-app.use(express.static(__dirname + '/public'));
-
-// Your routes and other configurations go here...
+// Your routes and other configurations go here...*/
 // Load data from file
 let rawData = fs.readFileSync(fileName);
 let data = JSON.parse(rawData);
 
 app.get('/', (request, response) => {
-    response.render('home');
+  response.render('home');
 });
 
 // This is a RESTful GET web service
 app.get('/commodities', (request, response) => {
-    data.sort((a, b) => (a.name > b.name) ? 1 : -1 );
-    response.send(data);
+  data.sort((a, b) => (a.name > b.name) ? 1 : -1);
+  response.send(data);
 });
 
 // This is a RESTful POST web service
 app.post('/commodities', jsonParser, (request, response) => {
-    data.push(request.body);
-    fs.writeFileSync(fileName, JSON.stringify(data, null, 2));
-    response.end();
+  data.push(request.body);
+  fs.writeFileSync(fileName, JSON.stringify(data, null, 2));
+  response.end();
 });
 
-app.listen(port);
-console.log('server listening on port 3000');*/
+// app.listen(port);
+// console.log('server listening on port 3000');
