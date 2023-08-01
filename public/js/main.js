@@ -4,11 +4,13 @@ const server = 'http://localhost:3000';
 
 // Function to handle the "View" button click event
 async function onViewButtonClick() {
+    console.log("View button clicked.");
     await fetchCommodities();
 }
 
 // Function to handle the "Add" button click event
 async function onAddButtonClick() {
+    console.log("Add button clicked.");
     commodityId = document.getElementById('commodityId').value;
     commodityName = document.getElementById('commodityName').value;
 
@@ -20,6 +22,7 @@ async function onAddButtonClick() {
 
 // Function to handle the "Edit" button click event
 async function onEditButtonClick() {
+    console.log("Edit button clicked.");
     commodityId = document.getElementById('commodityId').value;
     commodityName = document.getElementById('commodityName').value;
 
@@ -31,6 +34,7 @@ async function onEditButtonClick() {
 
 // Function to handle the "Delete" button click event
 async function onDeleteButtonClick() {
+    console.log("Delete button clicked.");
     commodityId = document.getElementById('commodityId').value;
 
     if (commodityId) {
@@ -42,6 +46,7 @@ async function onDeleteButtonClick() {
 // Function to fetch commodities from the server and populate the table
 async function fetchCommodities() {
     // Fetch commodities from the server
+     console.log("Fetching commodities from the server...");
     const response = await fetch(`${server}/commodities`);
     const commodities = await response.json();
     populateContent(commodities);
@@ -49,6 +54,7 @@ async function fetchCommodities() {
 
 // Function to add a new commodity to the server
 async function addcommodity() {
+   console.log("Adding commodity to the server..."); 
     const url = `${server}/commodities`;
     const commodity = { id: parseInt(commodityId), name: commodityName };
     const options = {
@@ -63,6 +69,7 @@ async function addcommodity() {
 
 // Function to update a commodity on the server
 async function updateCommodity() {
+    console.log("Updating commodity on the server...");
     const url = `${server}/commodities/${commodityId}`;
     const commodity = { name: commodityName };
     const options = {
@@ -77,6 +84,7 @@ async function updateCommodity() {
 
 // Function to delete a commodity from the server
 async function deleteCommodity() {
+    console.log("Deleting commodity from the server...");
     const url = `${server}/commodities/${commodityId}`;
     const options = {
         method: 'DELETE'
