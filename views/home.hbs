@@ -4,49 +4,56 @@
     <title>Statistics of goods and commodities</title>
     <meta charset="utf-8"/>
     <link rel="stylesheet" href="/public/css/style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <!--chart.js-->
-    <script
-src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
 </script>
 </head>
 <body onload="fetchCommodities()">
-    <h1>Commodity Register</h1>
-    <div>
-        <form>
-            <label for="commodityId">
-                <span>Commodity id:</span>
-                <input id="commodityId" type="text" />
-            </label>
-            <label for="commodityName">
-                <span>Commodity name:</span>
-                <input id="commodityName" type="text" />
-            </label>
-            <label for="commodityPrice">
-                <span>Commodity price:</span>
-                <input id="commodityPrice" type="text" />
-            </label>
-            <label>
-                <span> </span>
-                <button type="button">View</button>
-            </label>
-            <label>
-                <span> </span>
-                <button type="button">Add</button>
-            </label>
-            <label>
-                <span> </span>
-                <button type="button">Edit</button>
-            </label>
-            <label>
-                <span> </span>
-                <button type="button">Delete</button>
-            </label>
-        </form>
+    <div class="jumbotron">
+        <div class="container mt-2">
+            <div class="card">
+                <div class="card-header">
+                    <h1><center>Commodity Register</center></h1>
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="row">
+                            <div class="col-4">
+                                <label for="commodityId">Commodity Id:</label>
+                                <input type="text" class="form-control mx-auto" placeholder="" id="commodityId">
+                            </div>
+                            <div class="col-4">
+                                <label for="commodityName">Commodity Name:</label>
+                                <input type="text" class="form-control mx-auto" placeholder="" id="commodityName">
+                            </div>
+                            <div class="col-4">
+                                <label for="commodityPrice">Commodity Price:</label>
+                                <input type="text" class="form-control mx-auto" placeholder="" id="commodityPrice">
+                            </div>
+                        </div>
+                        <div class="row mt-2 float-end">
+                            <div class="col-5">
+                                <input type="button" class="btn btn-primary" value="Add Product" />
+                            </div>
+                            <div class="col-2"></div>
+                            <div class="col-5">
+                                <input type="reset" class="btn btn-danger" value="Reset" />
+                            </div>
+                        </div>
+                    </form>
 
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <div>
         <table id="content">
         </table>
     </div>
     <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     <script src="/public/js/main.js"></script>
 </body>
 </html>
